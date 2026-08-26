@@ -211,6 +211,17 @@ src="https://www.facebook.com/tr?id=1375961964063783&ev=PageView&noscript=1"
   ["pointerdown", "touchstart", "keydown", "scroll"].forEach((eventName) => {
     window.addEventListener(eventName, reveal, { once: true, passive: true });
   });
+
+  document.querySelectorAll(".primary-cta, .sticky-offer-cta").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (typeof fbq === "function") {
+        fbq("track", "AddToCart", {
+          content_name: "SEPTIFIX",
+          content_type: "product"
+        });
+      }
+    });
+  });
 })();
 </script></body>
 </html>
