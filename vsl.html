@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Top Septic Tank Treatment | Homeowner Field Notes</title>
+  <meta name="description" content="A sponsored result for a simple monthly septic maintenance option.">
+  <meta name="robots" content="index,follow">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1375961964063783');
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    :root {
+      --ink: #111111;
+      --muted: #6f6f6f;
+      --card: #f3f3f3;
+      --paper: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    .site-header { border-bottom: 1px solid var(--ink); }
+
+    .header-inner {
+      display: flex;
+      width: min(960px, calc(100% - 32px));
+      min-height: 118px;
+      margin: 0 auto;
+      align-items: center;
+      justify-content: space-between;
+      gap: 42px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand-icon {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--ink);
+      color: #ffffff;
+      font-size: 0.67rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+    }
+
+    .brand strong {
+      font-size: 1.2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .search-topic {
+      display: flex;
+      width: min(100%, 510px);
+      height: 46px;
+      padding-left: 14px;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #a8a8a8;
+      color: #222222;
+      font-size: 0.78rem;
+    }
+
+    .search-topic svg {
+      width: 46px;
+      height: 46px;
+      padding: 12px;
+      border-left: 1px solid #a8a8a8;
+      fill: none;
+      stroke: var(--ink);
+      stroke-linecap: round;
+      stroke-width: 1.7;
+    }
+
+    .results-shell {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 40px;
+    }
+
+    .results-label {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.68rem;
+    }
+
+    .results-label strong { font-weight: 400; }
+
+    .result-card {
+      position: relative;
+      display: grid;
+      min-height: 250px;
+      padding: 42px 32px 38px 68px;
+      align-items: center;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 30px;
+      background: var(--card);
+      color: var(--ink);
+      text-decoration: none;
+      transition: background-color 130ms ease;
+    }
+
+    .result-card:hover,
+    .result-card:focus-visible { background: #ebebeb; }
+
+    .result-card:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 4px;
+    }
+
+    .result-number {
+      position: absolute;
+      top: 50%;
+      left: -12px;
+      display: grid;
+      width: 54px;
+      height: 54px;
+      place-items: center;
+      background: var(--ink);
+      color: #ffffff;
+      font-size: 1rem;
+      transform: translateY(-50%);
+    }
+
+    .result-number::before {
+      position: absolute;
+      top: -10px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-right: 12px solid #747474;
+      border-top: 10px solid transparent;
+      content: "";
+    }
+
+    .result-copy { display: block; }
+
+    .result-title {
+      display: block;
+      max-width: 680px;
+      font-size: clamp(1.55rem, 3.1vw, 2.35rem);
+      font-weight: 400;
+      letter-spacing: -0.035em;
+      line-height: 1.12;
+    }
+
+    .result-domain {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.68rem;
+    }
+
+    .result-description {
+      display: block;
+      max-width: 650px;
+      margin-top: 12px;
+      color: #696969;
+      font-size: 0.78rem;
+      line-height: 1.55;
+    }
+
+    .see-button {
+      display: inline-flex;
+      min-width: 140px;
+      min-height: 54px;
+      padding: 13px 18px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: var(--ink);
+      color: #ffffff;
+      font-size: 0.95rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .see-button b {
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 0.7;
+    }
+
+    .maintenance-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.62rem;
+    }
+
+    .site-footer {
+      width: min(960px, calc(100% - 32px));
+      margin: auto auto 0;
+      padding: 22px 0 28px;
+      color: #555555;
+      font-size: 0.65rem;
+      text-align: center;
+    }
+
+    .site-footer nav {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .site-footer a { color: var(--ink); }
+    .site-footer p { margin: 10px 0 0; }
+
+    @media (max-width: 640px) {
+      .header-inner {
+        min-height: 116px;
+        padding: 18px 0;
+        align-items: stretch;
+        flex-direction: column;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      .brand strong { font-size: 1rem; }
+
+      .search-topic {
+        width: 100%;
+        height: 42px;
+      }
+
+      .search-topic svg {
+        width: 42px;
+        height: 42px;
+        padding: 11px;
+      }
+
+      .results-shell { padding-top: 22px; }
+      .results-label { margin-left: 2px; }
+
+      .result-card {
+        min-height: 310px;
+        padding: 42px 20px 22px 28px;
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .result-number {
+        top: 23px;
+        left: -7px;
+        width: 46px;
+        height: 46px;
+        transform: none;
+      }
+
+      .result-number::before {
+        top: -7px;
+        border-right-width: 7px;
+        border-top-width: 7px;
+      }
+
+      .result-title {
+        padding-left: 28px;
+        font-size: 1.63rem;
+      }
+
+      .result-domain { margin-top: 14px; }
+
+      .result-description {
+        margin-top: 10px;
+        font-size: 0.76rem;
+      }
+
+      .see-button {
+        width: 100%;
+        min-height: 52px;
+      }
+
+      .maintenance-note {
+        line-height: 1.4;
+        text-align: center;
+      }
+
+      .site-footer { padding-top: 14px; }
+
+      .site-footer nav {
+        flex-wrap: wrap;
+        gap: 9px 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .result-card { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1375961964063783&amp;ev=PageView&amp;noscript=1"
+      alt="">
+  </noscript>
+
+  <main class="page">
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="#results" aria-label="Homeowner Field Notes">
+          <span class="brand-icon" aria-hidden="true">HF</span>
+          <strong>Homeowner Field Notes</strong>
+        </a>
+
+        <div class="search-topic" aria-label="Search topic">
+          <span>septic tank treatment top rated</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <circle cx="10.8" cy="10.8" r="6.8"></circle>
+            <path d="m16 16 4.2 4.2"></path>
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <section class="results-shell" id="results" aria-labelledby="results-label">
+      <p class="results-label" id="results-label">
+        Sponsored Result For: <strong>septic tank treatment top rated</strong>
+      </p>
+
+      <a class="result-card offer-link"
+        href="https://hop.clickbank.net/?affiliate=kaneiv&amp;vendor=septifix&amp;op=shop&amp;tid=fbvsl"
+        rel="sponsored nofollow">
+        <span class="result-number" aria-hidden="true">01</span>
+
+        <span class="result-copy">
+          <span class="result-title">Top Septic Tank Treatment for Simple Monthly Care</span>
+          <span class="result-domain">septifix.com</span>
+          <span class="result-description">
+            SEPTIFIX is a flushable monthly tablet designed to support routine septic maintenance.
+            See current packages, directions, and product details on the official website.
+          </span>
+        </span>
+
+        <span class="see-button">
+          See It <b aria-hidden="true">›</b>
+        </span>
+      </a>
+
+      <p class="maintenance-note" id="editorial-notice">
+        For maintenance only. Does not replace inspections, pumping, or repairs.
+      </p>
+    </section>
+
+    <footer class="site-footer">
+      <nav aria-label="Legal links">
+        <a href="/privacy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/affiliate-disclosure.html">Affiliate Disclosure</a>
+        <a href="#editorial-notice">Editorial Notice</a>
+      </nav>
+      <p>Sponsored affiliate result. We may earn a commission if you purchase.</p>
+      <p>This website is not affiliated with or endorsed by Meta Platforms, Inc.</p>
+    </footer>
+  </main>
+
+  <script>
+    (() => {
+      const offerUrl =
+        'https://hop.clickbank.net/?affiliate=kaneiv&vendor=septifix&op=shop&tid=fbvsl';
+
+      document.querySelectorAll('.offer-link').forEach((link) => {
+        link.addEventListener('click', (event) => {
+          if (typeof window.fbq === 'function') {
+            window.fbq('track', 'AddToCart', {
+              content_name: 'SEPTIFIX',
+              content_type: 'product',
+              button_location: 'sponsored-result'
+            });
+          }
+
+          const isModifiedClick =
+            event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0;
+
+          if (!isModifiedClick) {
+            event.preventDefault();
+            window.setTimeout(() => window.location.assign(offerUrl), 150);
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
