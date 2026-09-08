@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Take a short quiz to see whether you qualify for free access to a phone-based training video.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Homeowner Field Notes">
+  <meta property="og:title" content="Check If You Qualify for Free Training Access">
+  <meta property="og:description" content="Answer four quick questions to check whether you qualify for free access to the training video.">
+  <title>Check If You Qualify for Free Training Access</title>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2538429599994696');
+  fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    :root {
+      --ink: #17202a;
+      --muted: #66717d;
+      --paper: #ffffff;
+      --page: #eef1f4;
+      --line: #dce1e6;
+      --accent: #bd3a2d;
+      --accent-dark: #92291f;
+      --accent-soft: #fff4f2;
+      --green: #237a45;
+      --green-soft: #edf8f1;
+      --navy: #16324f;
+      --shadow: 0 16px 45px rgba(23, 32, 42, .11);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 50% -120px, rgba(255,255,255,.95) 0, rgba(255,255,255,0) 390px),
+        var(--page);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .ad-label {
+      padding: 9px 16px;
+      border-bottom: 1px solid #e4e7ea;
+      background: rgba(255, 255, 255, .9);
+      color: #9199a2;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      width: min(780px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 30px 0 0;
+      text-align: center;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0 auto 15px;
+      color: #111820;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2rem, 5.2vw, 2.75rem);
+      line-height: 1.12;
+      letter-spacing: -.025em;
+    }
+
+    .headline-accent { color: var(--accent); }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 0 auto;
+      color: #46515d;
+      font-size: clamp(1.05rem, 2.6vw, 1.28rem);
+      line-height: 1.55;
+    }
+
+    .hero-copy strong { color: var(--accent); }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 15px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.86);
+      color: #46515d;
+      font-size: .92rem;
+      font-weight: 700;
+    }
+
+    .badge svg {
+      width: 17px;
+      height: 17px;
+      color: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .card-wrap {
+      width: min(630px, calc(100% - 28px));
+      margin: 26px auto 32px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      min-height: 430px;
+      padding: 30px 28px 28px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .step-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      color: #7d8791;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .progress {
+      height: 8px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      border-radius: 999px;
+      background: #e8ebee;
+    }
+
+    .progress-fill {
+      width: 12%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), #d95c4f);
+      transition: width .35s ease;
+    }
+
+    .screen {
+      display: none;
+      animation: enter .32s ease both;
+    }
+
+    .screen.active { display: block; }
+
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .question h2,
+    .result h2,
+    .loading h2 {
+      margin: 0 0 12px;
+      color: #111820;
+      font-size: clamp(1.45rem, 4vw, 1.72rem);
+      line-height: 1.28;
+      text-align: center;
+    }
+
+    .subtext {
+      margin: 0 auto 22px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .options {
+      display: grid;
+      gap: 12px;
+    }
+
+    .option {
+      width: 100%;
+      min-height: 59px;
+      padding: 15px 18px;
+      border: 2px solid #d9dee3;
+      border-radius: 11px;
+      color: #202a34;
+      background: #fbfcfc;
+      font: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.35;
+      text-align: center;
+      cursor: pointer;
+      transition: background .15s ease, border-color .15s ease, color .15s ease, transform .1s ease;
+    }
+
+    .option:hover,
+    .option:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      outline: none;
+    }
+
+    .option:active { transform: scale(.985); }
+
+    .option.selected {
+      border-color: var(--accent);
+      color: var(--accent-dark);
+      background: var(--accent-soft);
+    }
+
+    .two-up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .option.positive {
+      border-color: #79b58e;
+      color: #17693a;
+      background: var(--green-soft);
+    }
+
+    .loading {
+      padding: 48px 0 32px;
+      text-align: center;
+    }
+
+    .spinner {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 22px;
+      border: 6px solid #e8ebee;
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .result { padding: 2px 0 8px; text-align: center; }
+
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 20px;
+      padding: 10px 20px;
+      border: 1px solid #74b58b;
+      border-radius: 999px;
+      color: var(--green);
+      background: var(--green-soft);
+      font-size: .88rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .result-badge svg { width: 20px; height: 20px; }
+
+    .result-copy {
+      margin: 0 0 16px;
+      color: #4b5661;
+      font-size: 1.08rem;
+      line-height: 1.6;
+    }
+
+    .result-note {
+      margin: 16px 0 0;
+      color: #727c86;
+      font-size: .88rem;
+      line-height: 1.5;
+    }
+
+    .cta {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      width: 100%;
+      margin: 22px 0 0;
+      padding: 20px 20px;
+      border-radius: 10px;
+      color: #fff;
+      background: var(--accent);
+      box-shadow: 0 5px 0 var(--accent-dark);
+      font-size: clamp(1.08rem, 3.4vw, 1.35rem);
+      font-weight: 800;
+      line-height: 1.25;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+
+    .cta:hover,
+    .cta:focus-visible {
+      transform: translateY(2px);
+      box-shadow: 0 3px 0 var(--accent-dark);
+      outline: 3px solid rgba(189, 58, 45, .22);
+      outline-offset: 3px;
+    }
+
+    .cta::after {
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(110deg, transparent, rgba(255,255,255,.38), transparent);
+      content: '';
+      transform: skewX(-20deg);
+      animation: shine 3.2s infinite;
+    }
+
+    @keyframes shine {
+      0%, 42% { left: -150%; }
+      72%, 100% { left: 170%; }
+    }
+
+    .cta-detail {
+      margin: 13px 0 0;
+      color: #7a848e;
+      font-size: .9rem;
+    }
+
+    footer {
+      width: min(760px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 0 0 42px;
+      color: #8a939c;
+      font-size: .78rem;
+      line-height: 1.65;
+      text-align: center;
+    }
+
+    .footer-links { margin: 0 0 14px; font-size: .88rem; }
+
+    .footer-links a {
+      margin: 0 7px;
+      color: #546d86;
+    }
+
+    .disclosure { text-align: left; }
+
+    @media (max-width: 540px) {
+      .hero { padding-top: 26px; }
+      .badges { align-items: stretch; flex-direction: column; }
+      .badge { justify-content: center; }
+      .card { min-height: 448px; padding: 25px 18px 24px; border-radius: 15px; }
+      .two-up { grid-template-columns: 1fr; }
+      .option { min-height: 57px; padding: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2538429599994696&ev=PageView&noscript=1"
+  alt=""
+  ></noscript>
+  <div class="ad-label">Advertisement</div>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title"><span class="headline-accent">Thousands of Americans</span> Over 40 Are Exploring a Simple 20-Minute Phone Method for <span class="headline-accent">Extra Income</span></h1>
+      <p class="hero-copy">Check if you’re eligible for <strong>free access</strong> to the training video. Takes less than 60 seconds.</p>
+
+      <div class="badges" aria-label="Training details">
+        <div class="badge">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.3 3.7 2.4 18a2 2 0 0 0 1.8 3h15.6a2 2 0 0 0 1.8-3L13.7 3.7a2 2 0 0 0-3.4 0Z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg>
+          Limited spots remaining
+        </div>
+        <div class="badge">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m13 2-9 12h8l-1 8 9-12h-8l1-8Z"></path></svg>
+          Zero tech skills needed
+        </div>
+      </div>
+    </section>
+
+    <section class="card-wrap" aria-label="Free training access quiz">
+      <div class="card" id="quiz-card">
+        <div class="step-label">
+          <span id="step-copy">Question 1 of 4</span>
+          <span id="percent-copy">12% complete</span>
+        </div>
+        <div class="progress" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="12">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <div class="screen question active" id="q1" data-step="1">
+          <h2>Which age range are you in?</h2>
+          <p class="subtext">Choose the answer that fits you best.</p>
+          <div class="options">
+            <button class="option" type="button" data-next="q2" data-progress="35">18–34</button>
+            <button class="option" type="button" data-next="q2" data-progress="35">35–49</button>
+            <button class="option" type="button" data-next="q2" data-progress="35">50–64</button>
+            <button class="option" type="button" data-next="q2" data-progress="35">65+</button>
+          </div>
+        </div>
+
+        <div class="screen question" id="q2" data-step="2">
+          <h2>What device would you use to view the training?</h2>
+          <p class="subtext">No special device is required to watch the presentation.</p>
+          <div class="options">
+            <button class="option" type="button" data-next="q3" data-progress="60">My smartphone</button>
+            <button class="option" type="button" data-next="q3" data-progress="60">My laptop or desktop</button>
+            <button class="option" type="button" data-next="q3" data-progress="60">Either one</button>
+          </div>
+        </div>
+
+        <div class="screen question" id="q3" data-step="3">
+          <h2>Could you set aside about 20 minutes a day to learn something new?</h2>
+          <p class="subtext">Think about what would be realistic with your current schedule.</p>
+          <div class="options two-up">
+            <button class="option positive" type="button" data-next="q4" data-progress="82">Yes</button>
+            <button class="option" type="button" data-next="q4" data-progress="82">I could try</button>
+          </div>
+        </div>
+
+        <div class="screen question" id="q4" data-step="4">
+          <h2>Would you watch a free video that explains how the method works?</h2>
+          <p class="subtext">You can review the presentation first and decide for yourself.</p>
+          <div class="options two-up">
+            <button class="option positive" type="button" data-next="loading" data-progress="100">Yes, show me</button>
+            <button class="option" type="button" data-next="loading" data-progress="100">I want details first</button>
+          </div>
+        </div>
+
+        <div class="screen loading" id="loading-1" role="status" aria-live="polite">
+          <div class="spinner" aria-hidden="true"></div>
+          <h2>Reviewing your answers…</h2>
+          <p class="subtext">This will only take a moment.</p>
+        </div>
+
+        <div class="screen loading" id="loading-2" role="status" aria-live="polite">
+          <div class="spinner" aria-hidden="true"></div>
+          <h2>Preparing the free training…</h2>
+          <p class="subtext">You’re almost there.</p>
+        </div>
+
+        <div class="screen result" id="result" aria-live="polite">
+          <div class="result-badge">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 2.5 2.5L16 9"></path></svg>
+            Training ready
+          </div>
+          <h2>You’re ready to view the free training presentation.</h2>
+          <p class="result-copy">Based on your answers, the next step is to watch the free video and see how the system is explained.</p>
+          <p class="result-copy"><strong>Watch the full presentation before deciding whether it is right for you.</strong></p>
+
+          <a class="cta offer-link" href="https://activatesimprofits.com/sp-vsl4-27-ex/?affid=vertexoffers" rel="sponsored nofollow">▶ Watch the Free Video Now</a>
+          <p class="cta-detail">Free presentation • No promise or guarantee of earnings</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <p class="disclosure"><strong>Advertising and earnings disclosure:</strong> This page is an advertisement and may contain affiliate links. Homeowner Field Notes may receive compensation if you purchase through a link on this page. No income or results are guaranteed. Examples discussed in the linked presentation should not be considered typical or a promise of future results. Your results depend on your effort, experience, decisions, and other factors. This page is not affiliated with or endorsed by Meta or Facebook.</p>
+    <p>© <span id="year"></span> Homeowner Field Notes</p>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var offerBase = 'https://activatesimprofits.com/sp-vsl4-27-ex/?affid=vertexoffers';
+      var screens = document.querySelectorAll('.screen');
+      var options = document.querySelectorAll('.option');
+      var progress = document.querySelector('.progress');
+      var progressFill = document.getElementById('progress-fill');
+      var stepCopy = document.getElementById('step-copy');
+      var percentCopy = document.getElementById('percent-copy');
+      var card = document.getElementById('quiz-card');
+      var busy = false;
+
+      function safeTrack(eventName) {
+        try {
+          if (typeof window.fbq === 'function') {
+            window.fbq('trackCustom', eventName);
+          }
+        } catch (error) {}
+      }
+
+      function hideScreens() {
+        screens.forEach(function (screen) {
+          screen.classList.remove('active');
+        });
+      }
+
+      function showScreen(id) {
+        var nextScreen = document.getElementById(id);
+        if (!nextScreen) return;
+        hideScreens();
+        nextScreen.classList.add('active');
+
+        if (nextScreen.dataset.step) {
+          stepCopy.textContent = 'Question ' + nextScreen.dataset.step + ' of 4';
+        }
+      }
+
+      function setProgress(value) {
+        progressFill.style.width = value + '%';
+        progress.setAttribute('aria-valuenow', String(value));
+        percentCopy.textContent = value + '% complete';
+      }
+
+      function moveCardIntoView() {
+        var rect = card.getBoundingClientRect();
+        if (rect.top < 12 || rect.bottom > window.innerHeight) {
+          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      function finishQuiz() {
+        stepCopy.textContent = 'Complete';
+        percentCopy.textContent = '100% complete';
+        showScreen('loading-1');
+
+        window.setTimeout(function () {
+          showScreen('loading-2');
+        }, 1100);
+
+        window.setTimeout(function () {
+          showScreen('result');
+          safeTrack('QuizComplete');
+          busy = false;
+          moveCardIntoView();
+        }, 2300);
+      }
+
+      options.forEach(function (option) {
+        option.addEventListener('click', function () {
+          if (busy) return;
+          busy = true;
+
+          option.classList.add('selected');
+          var next = option.getAttribute('data-next');
+          var value = Number(option.getAttribute('data-progress')) || 0;
+
+          window.setTimeout(function () {
+            setProgress(value);
+            if (next === 'loading') {
+              finishQuiz();
+            } else {
+              showScreen(next);
+              safeTrack('QuizStep');
+              busy = false;
+              moveCardIntoView();
+            }
+          }, 220);
+        });
+      });
+
+      function buildOfferUrl() {
+        var outgoing = new URL(offerBase);
+        var incoming = new URLSearchParams(window.location.search);
+        var allowedNames = ['fbclid', 'rtkcid', 'rtkcmpid', 'rtkupdclickid', 'clickid'];
+
+        incoming.forEach(function (value, key) {
+          var isAllowed = allowedNames.indexOf(key) !== -1 || /^sub\d+$/.test(key) || /^utm_/.test(key);
+          if (isAllowed && value && key !== 'affid') {
+            outgoing.searchParams.set(key, value);
+          }
+        });
+
+        return outgoing.toString();
+      }
+
+      document.querySelectorAll('.offer-link').forEach(function (link) {
+        link.href = buildOfferUrl();
+        link.addEventListener('click', function () {
+          safeTrack('OutboundOfferClick');
+        });
+      });
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
