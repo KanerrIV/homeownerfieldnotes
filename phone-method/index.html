@@ -516,6 +516,14 @@
         } catch (error) {}
       }
 
+      function safeStandardTrack(eventName) {
+        try {
+          if (typeof window.fbq === 'function') {
+            window.fbq('track', eventName);
+          }
+        } catch (error) {}
+      }
+
       function hideScreens() {
         screens.forEach(function (screen) {
           screen.classList.remove('active');
@@ -609,6 +617,7 @@
       document.querySelectorAll('.offer-link').forEach(function (link) {
         link.href = buildOfferUrl();
         link.addEventListener('click', function () {
+          safeStandardTrack('AddToCart');
           safeTrack('OutboundOfferClick');
         });
       });
