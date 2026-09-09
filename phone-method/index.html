@@ -477,7 +477,7 @@
           <p class="result-copy">Based on your answers, the next step is to watch the free video and see how the system is explained.</p>
           <p class="result-copy"><strong>Watch the full presentation before deciding whether it is right for you.</strong></p>
 
-          <a class="cta offer-link" href="https://activatesimprofits.com/sp-vsl4-27-ex/?affid=vertexoffers" rel="sponsored nofollow">▶ Watch the Free Video Now</a>
+          <a class="cta offer-link" href="https://globalvisitlog.com/cf/r/6aa15d981587440012ae6f77" rel="sponsored nofollow">▶ Watch the Free Video Now</a>
           <p class="cta-detail">Free presentation • No promise or guarantee of earnings</p>
         </div>
       </div>
@@ -498,7 +498,7 @@
     (function () {
       'use strict';
 
-      var offerBase = 'https://activatesimprofits.com/sp-vsl4-27-ex/?affid=vertexoffers';
+      var offerBase = 'https://globalvisitlog.com/cf/r/6aa15d981587440012ae6f77';
       var screens = document.querySelectorAll('.screen');
       var options = document.querySelectorAll('.option');
       var progress = document.querySelector('.progress');
@@ -589,7 +589,12 @@
       function buildOfferUrl() {
         var outgoing = new URL(offerBase);
         var incoming = new URLSearchParams(window.location.search);
-        var allowedNames = ['fbclid', 'rtkcid', 'rtkcmpid', 'rtkupdclickid', 'clickid'];
+        var allowedNames = [
+          'fbclid', 'rtkcid', 'rtkcmpid', 'rtkupdclickid', 'clickid',
+          'ad_id', 'adset_id', 'campaign_id',
+          'ad_name', 'adset_name', 'campaign_name',
+          'source', 'placement'
+        ];
 
         incoming.forEach(function (value, key) {
           var isAllowed = allowedNames.indexOf(key) !== -1 || /^sub\d+$/.test(key) || /^utm_/.test(key);
