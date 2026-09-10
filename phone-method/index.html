@@ -429,18 +429,18 @@
         </div>
 
         <div class="screen question" id="q2" data-step="2">
-          <h2>What device would you use to view the training?</h2>
-          <p class="subtext">No special device is required to watch the presentation.</p>
+          <h2>What best describes your current situation?</h2>
           <div class="options">
-            <button class="option" type="button" data-next="q3" data-progress="60">My smartphone</button>
-            <button class="option" type="button" data-next="q3" data-progress="60">My laptop or desktop</button>
-            <button class="option" type="button" data-next="q3" data-progress="60">Either one</button>
+            <button class="option" type="button" data-next="q3" data-progress="60">Employed but need extra income</button>
+            <button class="option" type="button" data-next="q3" data-progress="60">Unemployed or laid off</button>
+            <button class="option" type="button" data-next="q3" data-progress="60">Retired / living on fixed income</button>
+            <button class="option" type="button" data-next="q3" data-progress="60">Self-employed or freelance</button>
           </div>
         </div>
 
         <div class="screen question" id="q3" data-step="3">
-          <h2>Could you set aside about 20 minutes a day to learn something new?</h2>
-          <p class="subtext">Think about what would be realistic with your current schedule.</p>
+          <h2>Could you set aside 20 minutes a day?</h2>
+          <p class="subtext">Before your regular day starts, using only a phone or laptop.</p>
           <div class="options two-up">
             <button class="option positive" type="button" data-next="q4" data-progress="82">Yes</button>
             <button class="option" type="button" data-next="q4" data-progress="82">I could try</button>
@@ -448,11 +448,11 @@
         </div>
 
         <div class="screen question" id="q4" data-step="4">
-          <h2>Would you watch a free video that explains how the method works?</h2>
-          <p class="subtext">You can review the presentation first and decide for yourself.</p>
+          <h2>Are you willing to watch a free 12-minute training video to see exactly how it works?</h2>
+          <p class="subtext">No credit card. No email required. You just watch.</p>
           <div class="options two-up">
             <button class="option positive" type="button" data-next="loading" data-progress="100">Yes, show me</button>
-            <button class="option" type="button" data-next="loading" data-progress="100">I want details first</button>
+            <button class="option" type="button" data-next="loading" data-progress="100">Show me more first</button>
           </div>
         </div>
 
@@ -616,9 +616,19 @@
 
       document.querySelectorAll('.offer-link').forEach(function (link) {
         link.href = buildOfferUrl();
-        link.addEventListener('click', function () {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+
+          if (link.getAttribute('aria-busy') === 'true') return;
+          link.setAttribute('aria-busy', 'true');
+
+          var destination = link.href;
           safeStandardTrack('AddToCart');
           safeTrack('OutboundOfferClick');
+
+          window.setTimeout(function () {
+            window.location.assign(destination);
+          }, 600);
         });
       });
 
